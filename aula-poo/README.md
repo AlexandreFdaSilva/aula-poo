@@ -6,8 +6,13 @@ Repositório para manter os arquivos da disciplina de POO
 ## Comandos importantes para lembrar
 
 ### Clonar repositório
+```
 git clone {endereço}
-ou
+```
+
+### Para adicionar arquivos no stage
+git add (nome)
+ou 
 git add .
 
 ### Para enviar / commitar o código
