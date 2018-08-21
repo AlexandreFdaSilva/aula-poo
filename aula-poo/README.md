@@ -16,6 +16,5 @@ git commit -m "{mensagem do commit}"
 ### Para ver o log
 git log
 
-
 ### Para ver a situação do working dir
 git status
