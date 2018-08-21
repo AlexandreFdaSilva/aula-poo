@@ -18,3 +18,9 @@ git log
 
 ### Para ver a situação do working dir
 git status
+
+### Para enviar as alteraçoes para o repositório remoto
+git push
+
+## Importante quando estiver na UNIVALI
+export PAGER=
