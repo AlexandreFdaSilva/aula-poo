@@ -1,12 +1,10 @@
-
 package pkg01.geradorprova;
 
-final class Discursiva {
+final class Discursiva extends Questao{
     private String criteriosCorrecao;
     
-    public Discursiva(){
+    public Discursiva(){}
     
-    }
     public String getCriteriosCorrecao() {
         return criteriosCorrecao;
     }

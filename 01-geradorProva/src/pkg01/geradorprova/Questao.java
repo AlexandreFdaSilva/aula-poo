@@ -1,14 +1,11 @@
-
 package pkg01.geradorprova;
-
 
 abstract class Questao {
     private String pergunta;
     private double peso;
     
-    public Questao(){
+    public Questao(){}
     
-    }
     public String getPergunta() {
         return pergunta;
     }

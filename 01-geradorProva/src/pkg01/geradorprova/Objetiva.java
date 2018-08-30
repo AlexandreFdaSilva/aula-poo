@@ -1,4 +1,3 @@
-
 package pkg01.geradorprova;
 
 final class Objetiva extends Questao{
