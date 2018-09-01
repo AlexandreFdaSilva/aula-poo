@@ -40,6 +40,21 @@ public class Prova {
         System.out.println("Data: " + this.data);
         System.out.println("Peso: " + this.peso);
         System.out.println("\nQuestoes discursivas: ");
+        int cont=1;
+        for(int i=0; i<questaoDiscursiva.length; i++){
+            System.out.println(cont+"("+questaoDiscursiva[i].getPeso()+") - "+questaoDiscursiva[i].getPergunta()+"\n");
+            cont++;
+        }
+        System.out.println("\nQuestoes objetivas: ");
+        for(int i=0; i<questaoObjetiva.length; i++){
+            System.out.println("\n"+cont+"("+questaoObjetiva[i].getPeso()+") - "+questaoObjetiva[i].getPergunta());
+            String[] aux = new String[5];
+            aux = questaoObjetiva[i].getOpcoes();
+            for(int j=0; j<5; j++){
+                System.out.println("("+j+") "+aux[j]);
+            }
+            cont++;
+        }
         
         return "chato pra krl hein NetBeans";
     }
@@ -70,9 +85,15 @@ public class Prova {
     }
     public void setTamanhoQuestaoDiscursiva(int tam){
         this.questaoDiscursiva = new Discursiva[tam];
+        for(int i=0; i<tam; i++){
+            this.questaoDiscursiva[i] = new Discursiva(); 
+        }
     }
     public void setTamanhoQuestaoObjetiva(int tam){
         this.questaoObjetiva = new Objetiva[tam];
+        for(int i=0; i<tam; i++){
+            this.questaoObjetiva[i] = new Objetiva(); 
+        }
     }
     public Discursiva[] getQuestaoDiscursiva() {
         return questaoDiscursiva;

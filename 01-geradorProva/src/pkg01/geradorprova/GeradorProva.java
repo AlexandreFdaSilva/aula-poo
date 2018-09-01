@@ -14,6 +14,7 @@ public class GeradorProva {
         Discursiva[] aux1 = new Discursiva[qtdDiscursivas];
         prova.setTamanhoQuestaoDiscursiva(qtdDiscursivas);
         for(int i=0; i<qtdDiscursivas; i++){
+            aux1[i] = new Discursiva();
             System.out.println("Digite o peso da questao: ");
             aux1[i].setPeso(Double.parseDouble(scan.nextLine()));
             System.out.println("Digite a questao discursiva["+i+"]: ");
@@ -28,6 +29,7 @@ public class GeradorProva {
         Objetiva[] aux2 = new Objetiva[qtdObjetivas];
         prova.setTamanhoQuestaoObjetiva(qtdObjetivas);
         for(int i=0; i<qtdObjetivas; i++){
+            aux2[i] = new Objetiva();
             System.out.println("Digite o peso da questao: ");
             aux2[i].setPeso(Integer.parseInt(scan.nextLine()));
             System.out.println("Digite a questao objetiva["+i+"]: ");
