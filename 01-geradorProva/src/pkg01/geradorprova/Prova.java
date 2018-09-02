@@ -13,7 +13,16 @@ public class Prova {
     public Prova(){
         this.peso = 10;
     }
-
+    
+    public boolean stringIsNumeric(String str){
+        for(char c : str.toCharArray()){
+            if(!Character.isDigit(c)){
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public String obtemDetalhes() {
         Scanner scan = new Scanner(System.in);
       
@@ -26,9 +35,17 @@ public class Prova {
         System.out.println("Digite a data da prova: ");
         this.data = scan.nextLine();
         
-        System.out.println("Digite o peso da prova: ");
-        this.peso = Integer.parseInt(scan.nextLine());
-                
+        String verificacao;
+        do{
+            System.out.println("Digite o peso da prova: ");
+            verificacao = scan.nextLine();
+            if(stringIsNumeric(verificacao)==false){
+                System.out.println("Peso precisa ser um numero inteiro");
+            }else{
+                    this.peso = Integer.parseInt(verificacao);
+            }
+        }while(stringIsNumeric(verificacao)==false);
+        
         String aux = this.nomeDisciplina + " - " + this.local + " - " + this.data + " - " + this.peso;
         
         return aux;
