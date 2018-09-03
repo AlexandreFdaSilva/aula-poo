@@ -5,13 +5,30 @@ import java.util.Scanner;
 public class GeradorProva {
     public static void main(String[] args) {
         Prova prova = new Prova();
-        prova.obtemDetalhes();
-        
         Scanner scan = new Scanner(System.in);
         
-        int qtdDiscursivas=0;
-
+        System.out.println("Digite o nome da disciplina: ");
+        prova.setNomeDisciplina(scan.nextLine());
+        
+        System.out.println("Digite o local da prova: ");
+        prova.setLocal( scan.nextLine());
+        
+        System.out.println("Digite a data da prova: ");
+        prova.setData(scan.nextLine());
+        
         String verificacao;
+        do{
+            System.out.println("Digite o peso da prova: ");
+            verificacao = scan.nextLine();
+            if(prova.stringIsNumeric(verificacao)==false){
+                System.out.println("Peso precisa ser um numero inteiro");
+            }else{
+                    prova.setPeso(Integer.parseInt(verificacao)); 
+            }
+        }while(prova.stringIsNumeric(verificacao)==false);
+        
+        int qtdDiscursivas=0;
+        
         do{
             System.out.println("Digite a quantidade de questoes discursivas: ");
             verificacao = scan.nextLine();
@@ -102,6 +119,6 @@ public class GeradorProva {
         }
         prova.setQuestaoObjetiva(aux2);
         
-        prova.obtemProvaImpressa();
+        System.out.println(prova.obtemProvaImpressa());
     }
 }

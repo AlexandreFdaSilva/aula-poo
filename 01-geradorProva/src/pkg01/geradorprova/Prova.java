@@ -1,7 +1,5 @@
 package pkg01.geradorprova;
 
-import java.util.Scanner;
-
 public class Prova {
     private String nomeDisciplina;
     private int peso;
@@ -24,56 +22,38 @@ public class Prova {
     }
     
     public String obtemDetalhes() {
-        Scanner scan = new Scanner(System.in);
-      
-        System.out.println("Digite o nome da disciplina: ");
-        this.nomeDisciplina = scan.nextLine();
+        String retur="";
         
-        System.out.println("Digite o local da prova: ");
-        this.local = scan.nextLine();
+        retur+=("Disciplina: "+this.nomeDisciplina+"\n");
+        retur+=("Local: "+this.local+"\n");
+        retur+=("Data: "+this.data+"\n");
+        retur+=("Peso: "+this.peso+"\n");
         
-        System.out.println("Digite a data da prova: ");
-        this.data = scan.nextLine();
-        
-        String verificacao;
-        do{
-            System.out.println("Digite o peso da prova: ");
-            verificacao = scan.nextLine();
-            if(stringIsNumeric(verificacao)==false){
-                System.out.println("Peso precisa ser um numero inteiro");
-            }else{
-                    this.peso = Integer.parseInt(verificacao);
-            }
-        }while(stringIsNumeric(verificacao)==false);
-        
-        String aux = this.nomeDisciplina + " - " + this.local + " - " + this.data + " - " + this.peso;
-        
-        return aux;
+        return retur;
     }
     
     public String obtemProvaImpressa(){
-        System.out.println("Disciplina: " + this.nomeDisciplina);
-        System.out.println("Local: " + this.local);
-        System.out.println("Data: " + this.data);
-        System.out.println("Peso: " + this.peso);
-        System.out.println("\nQuestoes discursivas: ");
+        String retur = obtemDetalhes();
+        
+        retur += "\nQuestoes discursivas: \n";
         int cont=1;
         for(int i=0; i<questaoDiscursiva.length; i++){
-            System.out.println(cont+"("+questaoDiscursiva[i].getPeso()+") - "+questaoDiscursiva[i].getPergunta()+"\n");
+            retur += cont+"("+questaoDiscursiva[i].getPeso()+") - "+questaoDiscursiva[i].getPergunta()+"\n";
             cont++;
         }
-        System.out.println("\nQuestoes objetivas: ");
+        retur += "\nQuestoes objetivas: \n";
         for(int i=0; i<questaoObjetiva.length; i++){
-            System.out.println("\n"+cont+"("+questaoObjetiva[i].getPeso()+") - "+questaoObjetiva[i].getPergunta());
+            retur += cont+"("+questaoObjetiva[i].getPeso()+") - "+questaoObjetiva[i].getPergunta()+"\n";
             String[] aux = new String[5];
             aux = questaoObjetiva[i].getOpcoes();
             for(int j=0; j<5; j++){
-                System.out.println("("+j+") "+aux[j]);
+                retur += "("+j+") "+aux[j]+"\n";
             }
+            retur += "\n";
             cont++;
         }
         
-        return "chato pra krl hein NetBeans";
+        return retur;
     }
 
     public String getNomeDisciplina() {
