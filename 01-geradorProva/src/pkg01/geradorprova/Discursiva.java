@@ -5,6 +5,14 @@ final class Discursiva extends Questao{
     
     public Discursiva(){}
     
+    @Override
+    public String retornaQuestao(){
+        String retur="";
+        retur += "("+this.getPeso()+") - "+this.getPergunta()+"\n";
+
+        return retur;
+    }
+    
     public String getCriteriosCorrecao() {
         return criteriosCorrecao;
     }

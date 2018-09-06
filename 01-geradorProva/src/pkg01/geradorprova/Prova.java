@@ -8,7 +8,8 @@ public class Prova {
     private Discursiva[] questaoDiscursiva;
     private Objetiva[] questaoObjetiva;
 
-    public Prova(){
+    public Prova(String nome){
+        this.nomeDisciplina = nome;
         this.peso = 10;
     }
     
@@ -37,18 +38,13 @@ public class Prova {
         
         retur += "\nQuestoes discursivas: \n";
         int cont=1;
-        for(int i=0; i<questaoDiscursiva.length; i++){
-            retur += cont+"("+questaoDiscursiva[i].getPeso()+") - "+questaoDiscursiva[i].getPergunta()+"\n";
+        for(int i=0; i<this.questaoDiscursiva.length; i++){
+            retur += cont+this.questaoDiscursiva[i].retornaQuestao();
             cont++;
         }
         retur += "\nQuestoes objetivas: \n";
-        for(int i=0; i<questaoObjetiva.length; i++){
-            retur += cont+"("+questaoObjetiva[i].getPeso()+") - "+questaoObjetiva[i].getPergunta()+"\n";
-            String[] aux = new String[5];
-            aux = questaoObjetiva[i].getOpcoes();
-            for(int j=0; j<5; j++){
-                retur += "("+j+") "+aux[j]+"\n";
-            }
+        for(int i=0; i<this.questaoObjetiva.length; i++){
+            retur += cont+this.questaoObjetiva[i].retornaQuestao();
             retur += "\n";
             cont++;
         }

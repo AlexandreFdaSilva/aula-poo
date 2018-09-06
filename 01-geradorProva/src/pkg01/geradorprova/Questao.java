@@ -6,6 +6,8 @@ abstract class Questao {
     
     public Questao(){}
     
+    abstract String retornaQuestao();
+    
     public String getPergunta() {
         return pergunta;
     }

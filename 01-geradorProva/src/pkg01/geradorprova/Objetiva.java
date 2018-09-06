@@ -7,6 +7,21 @@ final class Objetiva extends Questao{
     public Objetiva(){
          this.opcoes = new String[5];
     }
+    
+    @Override
+    public String retornaQuestao(){
+        String retur="";
+        retur += "("+this.getPeso()+") - "+this.getPergunta()+"\n";
+        String[] aux = new String[5];
+        aux = this.getOpcoes();
+        for(int j=0; j<5; j++){
+            retur += "("+j+") "+aux[j]+"\n";
+        }
+        retur += "\n";
+   
+        return retur;
+    }
+    
     public String[] getOpcoes() {
         return opcoes;
     }

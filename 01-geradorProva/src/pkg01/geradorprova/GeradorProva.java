@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class GeradorProva {
     public static void main(String[] args) {
-        Prova prova = new Prova();
+        
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Digite o nome da disciplina: ");
-        prova.setNomeDisciplina(scan.nextLine());
+        String disciplina = scan.nextLine();
+        
+        Prova prova = new Prova(disciplina);
         
         System.out.println("Digite o local da prova: ");
         prova.setLocal( scan.nextLine());
