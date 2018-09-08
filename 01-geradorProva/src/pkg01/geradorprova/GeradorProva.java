@@ -1,10 +1,10 @@
 package pkg01.geradorprova;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class GeradorProva {
     public static void main(String[] args) {
-        
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Digite o nome da disciplina: ");
@@ -13,113 +13,111 @@ public class GeradorProva {
         Prova prova = new Prova(disciplina);
         
         System.out.println("Digite o local da prova: ");
-        prova.setLocal( scan.nextLine());
+        prova.setLocal(scan.nextLine());
         
         System.out.println("Digite a data da prova: ");
         prova.setData(scan.nextLine());
         
-        String verificacao;
-        do{
-            System.out.println("Digite o peso da prova: ");
-            verificacao = scan.nextLine();
-            if(prova.stringIsNumeric(verificacao)==false){
-                System.out.println("Peso precisa ser um numero inteiro");
-            }else{
-                    prova.setPeso(Integer.parseInt(verificacao)); 
+        System.out.println("Digite o peso da prova: ");
+        while(true){
+            try{
+                prova.setPeso(Integer.parseInt(scan.nextLine()));
+                break;
+            }catch(Exception a){
+                System.out.println(a.getMessage());
+                System.out.println("Digite novamente.");
+                continue;
             }
-        }while(prova.stringIsNumeric(verificacao)==false);
-        
-        int qtdDiscursivas=0;
-        
-        do{
-            System.out.println("Digite a quantidade de questoes discursivas: ");
-            verificacao = scan.nextLine();
-            if(!prova.stringIsNumeric(verificacao)){
-                System.out.println("Precisa ser um numero inteiro");
-            }else{
-                qtdDiscursivas = Integer.parseInt(verificacao);
-            }
-        }while(!prova.stringIsNumeric(verificacao));
-        
-        Discursiva[] aux1 = new Discursiva[qtdDiscursivas];
-        prova.setTamanhoQuestaoDiscursiva(qtdDiscursivas);
-        
-        for(int i=0; i<qtdDiscursivas; i++){
-            aux1[i] = new Discursiva();
-            do{
-                System.out.println("Digite o peso da questao: ");
-                verificacao = scan.nextLine();
-                if(!prova.stringIsNumeric(verificacao)){
-                    System.out.println("Precisa ser um numero inteiro");
-                }else{
-                    aux1[i].setPeso(Double.parseDouble(verificacao));
-                }
-            }while(!prova.stringIsNumeric(verificacao));
-            
-            System.out.println("Digite a questao discursiva["+i+"]: ");
-            aux1[i].setPergunta(scan.nextLine());
-            
-            System.out.println("Digite o criterio de correcao: ");
-            aux1[i].setCriteriosCorrecao(scan.nextLine());
         }
-        prova.setQuestaoDiscursiva(aux1);
         
-        int qtdObjetivas=0;
+        String continuar;
+        ArrayList<Questao> aux = new ArrayList<Questao>();
         do{
-            System.out.println("Digite a quantidade de questoes objetivas: ");
-            verificacao = scan.nextLine();
-            if(!prova.stringIsNumeric(verificacao)){
-                System.out.println("Precisa ser um numero inteiro");
-            }else{
-                qtdObjetivas = Integer.parseInt(verificacao);
-            }
-        }while(!prova.stringIsNumeric(verificacao));
-        Objetiva[] aux2 = new Objetiva[qtdObjetivas];
-        prova.setTamanhoQuestaoObjetiva(qtdObjetivas);
-        
-        for(int i=0; i<qtdObjetivas; i++){
-            aux2[i] = new Objetiva();
+            String opcao;
             
             do{
+                System.out.println("Digite D para Discursiva ou O pra Objetiva");
+                opcao = scan.nextLine();
+             
+                if(opcao.compareTo("O")!=0 && opcao.compareTo("o")!=0 && 
+                   opcao.compareTo("D")!=0 && opcao.compareTo("d")!=0)
+                    System.out.println("Tipo de questao nao identificado.");
+                
+            }while(opcao.compareTo("O")!=0 && opcao.compareTo("o")!=0 && 
+                   opcao.compareTo("D")!=0 && opcao.compareTo("d")!=0);
+
+            if(opcao.compareTo("O")==0 || opcao.compareTo("o")==0){
+                Objetiva aux2 = new Objetiva();
+                
+                System.out.println("Digite a questao objetiva: ");
+                aux2.setPergunta(scan.nextLine());
+                
                 System.out.println("Digite o peso da questao: ");
-                verificacao = scan.nextLine();
-                if(!prova.stringIsNumeric(verificacao)){
-                    System.out.println("Precisa ser um numero inteiro");
-                }else{
-                    aux2[i].setPeso(Integer.parseInt(verificacao));
-                }
-            }while(!prova.stringIsNumeric(verificacao));
-            
-            
-            System.out.println("Digite a questao objetiva["+i+"]: ");
-            aux2[i].setPergunta(scan.nextLine());
-            String[] opcoes = new String[5];
-            for(int j=0; j<5; j++){
-                System.out.println("Digite a alternativa "+j+": ");
-                opcoes[j] = scan.nextLine();
-            }
-            aux2[i].setOpcoes(opcoes);
-            
-            boolean cond;
-            do{
-                cond=true;
-                System.out.println("Digite a alternativa correta: ");
-                verificacao = scan.nextLine();
-                cond = prova.stringIsNumeric(verificacao);
-                if(!cond){
-                    System.out.println("Precisa ser um numero inteiro");
-                }else{
-                    int verificacao2 = Integer.parseInt(verificacao);
-                    if(verificacao2 < 0 || verificacao2 > 4){
-                        System.out.println("Numero entre 0 e 4");
-                        cond = false;
-                    }else{
-                        aux2[i].setRespostaCorreta(verificacao2);
+                while(true){
+                    try{
+                        aux2.setPeso(Integer.parseInt(scan.nextLine()));
+                        break;
+                    }catch(Exception a){
+                        System.out.println(a.getMessage());
+                        System.out.println("Digite novamente.");
+                        continue;
                     }
                 }
-            }while(!cond);
-        }
-        prova.setQuestaoObjetiva(aux2);
+                
+                String[] alternativas = new String[5];
+                for(int i=0; i<5; i++){
+                    System.out.println("Digite a alternativa "+(i+1)+": ");
+                    alternativas[i] = scan.nextLine();
+                }
+                aux2.setOpcoes(alternativas);
+                
+                System.out.println("Digite a alternativa correta: ");
+                while(true){
+                    try{
+                        aux2.setRespostaCorreta((Integer.parseInt(scan.nextLine())+1));
+                        if(aux2.getRespostaCorreta()<1 || aux2.getRespostaCorreta()>5)
+                            throw new IllegalArgumentException();
+                        break;
+                    }catch(NumberFormatException a){
+                        System.out.println(a.getMessage());
+                        System.out.println("Digite novamente.");
+                        continue;
+                    }catch(IllegalArgumentException e){
+                        System.out.println("Alternativa correta precisa estar entre 1 e 5.");
+                        System.out.println("Digite novamente.");
+                        continue;
+                    }
+                }
+                
+                aux.add(aux2);
+            }else{
+                Discursiva aux2 = new Discursiva();
+                
+                System.out.println("Digite a questao discursiva: ");
+                aux2.setPergunta(scan.nextLine());
+                
+                System.out.println("Digite o peso da questao: ");
+                while(true){
+                    try{
+                        aux2.setPeso(Integer.parseInt(scan.nextLine()));
+                        break;
+                    }catch(Exception a){
+                        System.out.println(a.getMessage());
+                        System.out.println("Digite novamente.");
+                        continue;
+                    }   
+                }
+                
+                System.out.println("Digite o criterio de correcao: ");
+                aux2.setCriteriosCorrecao(scan.nextLine());
+                
+                aux.add(aux2);
+            }
+            
+            System.out.println("Deseja adicionar mais uma questao? S/N");
+            continuar = scan.nextLine();
+        }while(continuar.compareTo("S")==0 || continuar.compareTo("s")==0);
+        prova.setQuestoes(aux);
         
         System.out.println(prova.obtemProvaImpressa());
     }

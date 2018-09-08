@@ -1,34 +1,29 @@
 package pkg01.geradorprova;
 
+import java.util.ArrayList;
+
 public class Prova {
     private String nomeDisciplina;
     private int peso;
     private String local;
     private String data;
-    private Discursiva[] questaoDiscursiva;
-    private Objetiva[] questaoObjetiva;
+    private ArrayList<Questao> questoes = new ArrayList<Questao>();
+    
 
     public Prova(String nome){
         this.nomeDisciplina = nome;
         this.peso = 10;
     }
     
-    public boolean stringIsNumeric(String str){
-        for(char c : str.toCharArray()){
-            if(!Character.isDigit(c)){
-                return false;
-            }
-        }
-        return true;
-    }
-    
     public String obtemDetalhes() {
         String retur="";
         
+        retur+=("Universidade do Vale do Itajai\nEscola do mar, ciencia e tecnologia\n");
         retur+=("Disciplina: "+this.nomeDisciplina+"\n");
         retur+=("Local: "+this.local+"\n");
         retur+=("Data: "+this.data+"\n");
         retur+=("Peso: "+this.peso+"\n");
+        retur+=("Aluno: ___________________________\n");
         
         return retur;
     }
@@ -36,16 +31,9 @@ public class Prova {
     public String obtemProvaImpressa(){
         String retur = obtemDetalhes();
         
-        retur += "\nQuestoes discursivas: \n";
         int cont=1;
-        for(int i=0; i<this.questaoDiscursiva.length; i++){
-            retur += cont+this.questaoDiscursiva[i].retornaQuestao();
-            cont++;
-        }
-        retur += "\nQuestoes objetivas: \n";
-        for(int i=0; i<this.questaoObjetiva.length; i++){
-            retur += cont+this.questaoObjetiva[i].retornaQuestao();
-            retur += "\n";
+        for(int i=0; i<this.questoes.size(); i++){
+            retur+=(cont+this.questoes.get(i).retornaQuestao()+"\n");
             cont++;
         }
         
@@ -76,28 +64,10 @@ public class Prova {
     public void setData(String data) {
         this.data = data;
     }
-    public void setTamanhoQuestaoDiscursiva(int tam){
-        this.questaoDiscursiva = new Discursiva[tam];
-        for(int i=0; i<tam; i++){
-            this.questaoDiscursiva[i] = new Discursiva(); 
-        }
+    public ArrayList<Questao> getQuestoes() {
+        return questoes;
     }
-    public void setTamanhoQuestaoObjetiva(int tam){
-        this.questaoObjetiva = new Objetiva[tam];
-        for(int i=0; i<tam; i++){
-            this.questaoObjetiva[i] = new Objetiva(); 
-        }
-    }
-    public Discursiva[] getQuestaoDiscursiva() {
-        return questaoDiscursiva;
-    }
-    public void setQuestaoDiscursiva(Discursiva[] questaoDiscursiva) {
-        this.questaoDiscursiva = questaoDiscursiva;
-    }
-    public Objetiva[] getQuestaoObjetiva() {
-        return questaoObjetiva;
-    }
-    public void setQuestaoObjetiva(Objetiva[] questaoObjetiva) {
-        this.questaoObjetiva = questaoObjetiva;
+    public void setQuestoes(ArrayList<Questao> questoes) {
+        this.questoes = questoes;
     }
 }
