@@ -2,6 +2,9 @@ package pkg01.geradorprova;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 public class GeradorProva {
     public static void main(String[] args) {
@@ -119,6 +122,17 @@ public class GeradorProva {
         }while(continuar.compareTo("S")==0 || continuar.compareTo("s")==0);
         prova.setQuestoes(aux);
         
-        System.out.println(prova.obtemProvaImpressa());
+        //System.out.println(prova.obtemProvaImpressa());
+        System.out.println("\nDigite o nome que deseja salvar o arquivo: ");
+        String nomeArquivo = scan.nextLine();
+        try{
+            File arquivo = new File(nomeArquivo+".txt");
+            FileWriter escritor = new FileWriter(arquivo);
+            PrintWriter saida = new PrintWriter(escritor);
+            saida.println(prova.obtemProvaImpressa());
+            saida.close();
+        }catch(Exception e){
+            System.out.println("Falha ao salvar em arquivo.");
+        }
     }
 }

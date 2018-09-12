@@ -8,7 +8,7 @@ final class Discursiva extends Questao{
     @Override
     public String retornaQuestao(){
         String retur="";
-        retur += "("+this.getPeso()+") - "+this.getPergunta()+"\nR:\n";
+        retur += "("+this.getPeso()+") - "+this.getPergunta()+"\r\nR:\r\n";
 
         return retur;
     }

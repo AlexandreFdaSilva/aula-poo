@@ -18,12 +18,12 @@ public class Prova {
     public String obtemDetalhes() {
         String retur="";
         
-        retur+=("Universidade do Vale do Itajai\nEscola do mar, ciencia e tecnologia\n");
-        retur+=("Disciplina: "+this.nomeDisciplina+"\n");
-        retur+=("Local: "+this.local+"\n");
-        retur+=("Data: "+this.data+"\n");
-        retur+=("Peso: "+this.peso+"\n");
-        retur+=("Aluno: ___________________________\n");
+        retur+=("Universidade do Vale do Itajai\r\nEscola do mar, ciencia e tecnologia\r\n");
+        retur+=("Disciplina: "+this.nomeDisciplina+"\r\n");
+        retur+=("Local: "+this.local+"\r\n");
+        retur+=("Data: "+this.data+"\r\n");
+        retur+=("Peso: "+this.peso+"\r\n");
+        retur+=("Aluno: ___________________________\r\n");
         
         return retur;
     }
@@ -33,7 +33,7 @@ public class Prova {
         
         int cont=1;
         for(int i=0; i<this.questoes.size(); i++){
-            retur+=(cont+this.questoes.get(i).retornaQuestao()+"\n");
+            retur+=(cont+this.questoes.get(i).retornaQuestao()+"\r\n");
             cont++;
         }
         
