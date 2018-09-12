@@ -5,30 +5,27 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 public class GeradorProva {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         
-        System.out.println("Digite o nome da disciplina: ");
-        String disciplina = scan.nextLine();
+        String disciplina = JOptionPane.showInputDialog("Digite o nome da disciplina: ");
         
         Prova prova = new Prova(disciplina);
+
+        prova.setLocal(JOptionPane.showInputDialog("Digite o local da prova: "));
         
-        System.out.println("Digite o local da prova: ");
-        prova.setLocal(scan.nextLine());
-        
-        System.out.println("Digite a data da prova: ");
-        prova.setData(scan.nextLine());
-        
-        System.out.println("Digite o peso da prova: ");
+        prova.setData(JOptionPane.showInputDialog("Digite a data da prova: "));
+       
         while(true){
             try{
-                prova.setPeso(Integer.parseInt(scan.nextLine()));
+                prova.setPeso(Integer.parseInt(JOptionPane.showInputDialog("Digite o peso da prova: ")));
                 break;
             }catch(Exception a){
-                System.out.println(a.getMessage());
-                System.out.println("Digite novamente.");
+                JOptionPane.showMessageDialog(null, a.getMessage());
+                JOptionPane.showMessageDialog(null, a"Digite novamente.");
                 continue;
             }
         }
@@ -39,12 +36,11 @@ public class GeradorProva {
             String opcao;
             
             do{
-                System.out.println("Digite D para Discursiva ou O pra Objetiva");
-                opcao = scan.nextLine();
+                opcao = JOptionPane.showInputDialog("Digite D para Discursiva ou O pra Objetiva");
              
                 if(opcao.compareTo("O")!=0 && opcao.compareTo("o")!=0 && 
                    opcao.compareTo("D")!=0 && opcao.compareTo("d")!=0)
-                    System.out.println("Tipo de questao nao identificado.");
+                    JOptionPane.showInputDialog("Tipo de questao nao identificado.");
                 
             }while(opcao.compareTo("O")!=0 && opcao.compareTo("o")!=0 && 
                    opcao.compareTo("D")!=0 && opcao.compareTo("d")!=0);
