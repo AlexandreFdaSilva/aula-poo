@@ -14,10 +14,11 @@ final class Objetiva extends Questao{
         retur += "("+this.getPeso()+") - "+this.getPergunta()+"\r\n";
         String[] aux = new String[5];
         aux = this.getOpcoes();
+        char letra = 'a';
         for(int j=0; j<5; j++){
-            retur += "("+j+") "+aux[j]+"\r\n";
+            retur += letra + ") "+aux[j]+"\r\n";
+            letra++;
         }
-        retur += "\r\n";
    
         return retur;
     }

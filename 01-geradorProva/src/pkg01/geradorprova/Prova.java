@@ -21,9 +21,10 @@ public class Prova {
         retur+=("Universidade do Vale do Itajai\r\nEscola do mar, ciencia e tecnologia\r\n");
         retur+=("Disciplina: "+this.nomeDisciplina+"\r\n");
         retur+=("Local: "+this.local+"\r\n");
-        retur+=("Data: "+this.data+"\r\n");
         retur+=("Peso: "+this.peso+"\r\n");
-        retur+=("Aluno: ___________________________\r\n");
+        retur+=("Data: "+this.data+"\r\n");
+        retur+=("Aluno: ______________________________________________\r\n");
+        retur+=("=====================================================================\r\n");
         
         return retur;
     }
