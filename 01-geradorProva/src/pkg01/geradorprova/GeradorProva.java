@@ -97,8 +97,18 @@ public class GeradorProva {
                 
                 aux.add(aux2);
             }
-            
-            continuar = JOptionPane.showInputDialog("Deseja adicionar mais uma questao? S/N");
+            while(true){
+                try{
+                    continuar = JOptionPane.showInputDialog("Deseja adicionar mais uma questao? S/N");
+                    if(continuar.compareTo("S")!=0 && continuar.compareTo("s")!=0 && 
+                       continuar.compareTo("N")!=0 && continuar.compareTo("n")!=0 )
+                        throw new Exception();
+                    break;
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Opcao nao identificada\nDigite novamente");
+                    continue;
+                }
+            }
         }while(continuar.compareTo("S")==0 || continuar.compareTo("s")==0);
         prova.setQuestoes(aux);
         
