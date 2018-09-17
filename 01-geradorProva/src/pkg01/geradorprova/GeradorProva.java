@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.io.FileReader;
 import javax.swing.JOptionPane;
 
 public class GeradorProva {
@@ -19,9 +20,14 @@ public class GeradorProva {
         while(true){
             try{
                 prova.setPeso(Integer.parseInt(JOptionPane.showInputDialog("Digite o peso da prova: ")));
+                if(prova.getPeso()<=0)
+                    throw new IllegalArgumentException();
                 break;
-            }catch(Exception a){
-                JOptionPane.showMessageDialog(null, a.getMessage() + "\nDigite novamente");
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, e.getMessage() + "\nDigite novamente");
+                continue;
+            }catch(IllegalArgumentException a){
+                JOptionPane.showMessageDialog(null, "Peso precisa ser maior que zero." + "\nDigite novamente");
                 continue;
             }
         }
@@ -49,9 +55,14 @@ public class GeradorProva {
                 while(true){
                     try{
                         aux2.setPeso(Double.parseDouble(JOptionPane.showInputDialog("Digite o peso da questao: ")));
+                        if(aux2.getPeso()<=0)
+                            throw new IllegalArgumentException();
                         break;
-                    }catch(Exception a){
-                        JOptionPane.showMessageDialog(null, a.getMessage() + "\nDigite novamente");
+                    }catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(null, e.getMessage() + "\nDigite novamente");
+                        continue;
+                    }catch(IllegalArgumentException a){
+                        JOptionPane.showMessageDialog(null, "Peso precisa ser maior que zero." + "\nDigite novamente");
                         continue;
                     }
                 }
@@ -76,7 +87,6 @@ public class GeradorProva {
                         continue;
                     }
                 }
-                
                 aux.add(aux2);
             }else{
                 Discursiva aux2 = new Discursiva();
@@ -113,7 +123,19 @@ public class GeradorProva {
         prova.setQuestoes(aux);
         
         //System.out.println(prova.obtemProvaImpressa());
-        String nomeArquivo = JOptionPane.showInputDialog("Digite o nome que deseja salvar o arquivo: ");
+        String nomeArquivo="prova";
+        while(true){
+            try{
+                nomeArquivo = JOptionPane.showInputDialog("Digite o nome que deseja salvar o arquivo: ");
+                FileReader reader = new FileReader(nomeArquivo+".txt");
+                String opcao = JOptionPane.showInputDialog("Arquivo ja existe.\nDeseja sobreescreve-lo? S/N");
+                if(opcao.compareTo("s")==0 || opcao.compareTo("S")==0)
+                    throw new Exception();
+                continue;
+            }catch(Exception e){
+                break;
+            }
+        }
         try{
             File arquivo = new File(nomeArquivo+".txt");
             FileWriter escritor = new FileWriter(arquivo);
