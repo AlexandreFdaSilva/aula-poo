@@ -15,7 +15,7 @@
     <EditText
         android:id="@+id/textView7"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
@@ -35,7 +35,7 @@
     <EditText
         android:id="@+id/textView8"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textView7"
         android:layout_alignStart="@+id/textView7"
         android:layout_marginStart="0dp"
@@ -46,7 +46,7 @@
     <EditText
         android:id="@+id/textView9"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textView8"
         android:layout_alignStart="@+id/textView7"
         android:layout_marginStart="0dp"
@@ -66,7 +66,7 @@
     <EditText
         android:id="@+id/textView10"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textView9"
         android:layout_alignStart="@+id/textView7"
         android:layout_marginStart="0dp"
@@ -77,7 +77,7 @@
     <EditText
         android:id="@+id/textView11"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textView10"
         android:layout_alignStart="@+id/textView7"
         android:layout_marginStart="0dp"

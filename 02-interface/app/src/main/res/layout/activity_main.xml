@@ -16,7 +16,7 @@
     <EditText
         android:id="@+id/textView"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="220dp"
@@ -36,22 +36,22 @@
     <EditText
         android:id="@+id/textView2"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_alignStart="@+id/textView"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:inputType="textPersonName"
         android:hint="@string/second_text" />
 
     <EditText
         android:id="@+id/textView3"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_alignStart="@+id/textView"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:inputType="phone"
         android:hint="@string/third_text" />
 
@@ -67,22 +67,22 @@
     <EditText
         android:id="@+id/textView4"
         android:layout_width="125dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/textView"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:inputType="text"
         android:hint="@string/fourth_text" />
 
     <EditText
         android:id="@+id/textView5"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
         android:layout_alignStart="@+id/textView"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:inputType="textEmailAddress"
         android:hint="@string/fifth_text" />
 
