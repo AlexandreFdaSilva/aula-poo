@@ -1,23 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <EditText
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="top"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"/>
+        android:layout_height="205dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:src="@drawable/top_image" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="70dp"
+        android:hint="@string/first_text" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="35dp"
+        app:srcCompat="@drawable/contact_image" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/second_text" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/third_text" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="35dp"
+        app:srcCompat="@drawable/phone_image" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="125dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/fourth_text" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/fifth_text" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="35dp"
+        app:srcCompat="@drawable/mail_image" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="125dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/sixth_text" />
+
+
+</RelativeLayout>

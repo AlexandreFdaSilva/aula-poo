@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Criar novo contato</string>
+    <string name="first_text">Nome</string>
+    <string name="second_text">Sobrenome</string>
+    <string name="third_text">Numero</string>
+    <string name="fourth_text">Movel</string>
+    <string name="fifth_text">Email</string>
+    <string name="sixth_text">Casa</string>
+</resources>
