@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculadora de equacao</string>
+    <string name="title">Insira uma equacao</string>
+    <string name="buttonText">Resolver</string>
+    <string name="buttonText2">Resetar</string>
+    <string name="errorMessage">Nao existe raiz quadrada real</string>
+</resources>

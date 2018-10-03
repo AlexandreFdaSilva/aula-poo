@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Equation calculator</string>
+    <string name="title">Insert the equation</string>
+    <string name="buttonText">Solve</string>
+    <string name="buttonText2">Reset</string>
+    <string name="errorMessage">There is no real square root</string>
+</resources>
