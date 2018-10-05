@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,60 +27,79 @@ public class MainActivity extends AppCompatActivity {
         String Snum_x = Enum_x.getText().toString();
         String Snum = Enum.getText().toString();
 
+        int cond=0;
         if(Snum_x2.equals("")){
-            Enum_x2.setError("Inform a number");
-            return;
-        }else if(Snum_x.equals("")){
-            Enum_x.setError("Inform a number");
-            return;
-        }else if(Snum.equals("")){
-            Enum.setError("Inform a number");
-            return;
+            Enum_x2.setError(getString(R.string.errorMessage3));
+            cond=1;
         }
+        if(Snum_x.equals("")){
+            Enum_x.setError(getString(R.string.errorMessage3));
+            cond=1;
+        }
+        if(Snum.equals("")){
+            Enum.setError(getString(R.string.errorMessage3));
+            cond=1;
+        }
+        if(cond==1)
+            return;
 
-        Double num_x2;
-        Double num_x;
-        Double num;
+        double num_x2;
+        double num_x;
+        double num;
 
         try{
             num_x2 = Double.parseDouble(Snum_x2);
             num_x = Double.parseDouble(Snum_x);
             num = Double.parseDouble(Snum);
         }catch (Exception e){
-            Toast mensagemErro = Toast.makeText(this, "Something wrong happened", Toast.LENGTH_LONG);
+            String error = getString(R.string.errorMessage2);
+            Toast mensagemErro = Toast.makeText(this, error, Toast.LENGTH_LONG);
             mensagemErro.show();
             return;
         }
 
-        Double delta = (num_x*num_x) - (4*num_x2*num);
+        if(num_x2==0){
+            double x1;
+            x1 = (-1*num) / num_x;
 
-        if(delta>=0){
-            Double x1 = (-(num_x) + Math.sqrt(delta))/(2 * num_x2);
-            Double x2 = (-(num_x) - Math.sqrt(delta))/(2 * num_x2);
-
-            //Toast.makeText(this.getApplicationContext(), "x' = " + x1.toString(), Toast.LENGTH_LONG).show();
-            //Toast.makeText(this.getApplicationContext(), "x' = " + x2.toString(), Toast.LENGTH_LONG).show();
-
-            if(x1 == x2) {
-                EditText x = (EditText) findViewById(R.id.tv_x);
-
-                x.setVisibility(View.VISIBLE);
-
-                x.setText("x' = x'' = " + x1.toString());
-            }else{
-                EditText x_1 = (EditText) findViewById(R.id.tv_x_1);
-                EditText x_2 = (EditText) findViewById(R.id.tv_x_2);
-
-                x_1.setVisibility(View.VISIBLE);
-                x_2.setVisibility(View.VISIBLE);
-
-                x_1.setText("x' = " + x1.toString());
-                x_2.setText("x'' = " + x2.toString());
-            }
-        }else{
-            EditText x = (EditText) findViewById(R.id.tv_x);
+            TextView x = (TextView) findViewById(R.id.tv_x);
 
             x.setVisibility(View.VISIBLE);
+
+            x1 = Double.parseDouble(new DecimalFormat("##.##").format(x1));
+            x.setText("x = " + Double.toString(x1));
+        }else{
+            double delta = (num_x*num_x) - (4*num_x2*num);
+
+            if(delta>=0){
+                double x1 = (-(num_x) + Math.sqrt(delta))/(2 * num_x2);
+                double x2 = (-(num_x) - Math.sqrt(delta))/(2 * num_x2);
+
+                if(x1 == x2){
+                    TextView x = (TextView) findViewById(R.id.tv_x);
+
+                    x.setVisibility(View.VISIBLE);
+
+                    x1 = Double.parseDouble(new DecimalFormat("##.##").format(x1));
+                    x.setText("x' = x'' = " + Double.toString(x1));
+                }else{
+                    TextView x_1 = (TextView) findViewById(R.id.tv_x_1);
+                    TextView x_2 = (TextView) findViewById(R.id.tv_x_2);
+
+                    x_1.setVisibility(View.VISIBLE);
+                    x_2.setVisibility(View.VISIBLE);
+
+                    x1 = Double.parseDouble(new DecimalFormat("##.##").format(x1));
+                    x2 = Double.parseDouble(new DecimalFormat("##.##").format(x2));
+                    x_1.setText("x' = " +  Double.toString(x1));
+                    x_2.setText("x'' = " +  Double.toString(x2));
+                }
+            }else{
+                TextView x = (TextView) findViewById(R.id.tv_x);
+                String errorText = getString(R.string.errorMessage);
+                x.setText(errorText);
+                x.setVisibility(View.VISIBLE);
+            }
         }
 
         Button reset = (Button) findViewById(R.id.buttonReset);
@@ -95,9 +117,9 @@ public class MainActivity extends AppCompatActivity {
         Enum_x.setText("");
         Enum.setText("");
 
-        EditText x = (EditText) findViewById(R.id.tv_x);
-        EditText x_1 = (EditText) findViewById(R.id.tv_x_1);
-        EditText x_2 = (EditText) findViewById(R.id.tv_x_2);
+        TextView x = (TextView) findViewById(R.id.tv_x);
+        TextView x_1 = (TextView) findViewById(R.id.tv_x_1);
+        TextView x_2 = (TextView) findViewById(R.id.tv_x_2);
 
         x_1.setVisibility(View.INVISIBLE);
         x_2.setVisibility(View.INVISIBLE);

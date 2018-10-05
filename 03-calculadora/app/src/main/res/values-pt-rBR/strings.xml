@@ -5,4 +5,6 @@
     <string name="buttonText">Resolver</string>
     <string name="buttonText2">Resetar</string>
     <string name="errorMessage">Nao existe raiz quadrada real</string>
+    <string name="errorMessage2">Algo errado aconteceu</string>
+    <string name="errorMessage3">Informe um numero</string>
 </resources>

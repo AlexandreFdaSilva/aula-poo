@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gleichung Rechner</string>
+    <string name="title">Fügen Sie die Gleichung ein</string>
+    <string name="buttonText">Lösen</string>
+    <string name="buttonText2">Zurücksetzen</string>
+    <string name="errorMessage">Es gibt keine echte Quadratwurzel</string>
+    <string name="errorMessage2">Etwas ist schiefgelaufen</string>
+    <string name="errorMessage3">Informiere eine Nummer</string>
+</resources>

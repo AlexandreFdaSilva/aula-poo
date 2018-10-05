@@ -13,6 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
         android:text="@string/title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +26,9 @@
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="128dp"
-        android:inputType="number"
+        android:background="@color/backgroundTextColor"
+        android:textAlignment="textEnd"
+        android:inputType="numberDecimal|numberSigned"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +36,7 @@
         android:id="@+id/tv_X2"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:text=" x^2 +"
         app:layout_constraintStart_toEndOf="@+id/et_numX2"
@@ -42,7 +46,9 @@
         android:id="@+id/et_numX"
         android:layout_width="60dp"
         android:layout_height="40dp"
-        android:inputType="number"
+        android:background="@color/backgroundTextColor"
+        android:textAlignment="textEnd"
+        android:inputType="numberDecimal|numberSigned"
         app:layout_constraintStart_toEndOf="@+id/tv_X2"
         app:layout_constraintTop_toTopOf="@+id/tv_X2" />
 
@@ -50,6 +56,7 @@
         android:id="@+id/tv_X"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:text=" x +"
         app:layout_constraintStart_toEndOf="@+id/et_numX"
@@ -59,7 +66,9 @@
         android:id="@+id/et_num"
         android:layout_width="60dp"
         android:layout_height="40dp"
-        android:inputType="number"
+        android:background="@color/backgroundTextColor"
+        android:textAlignment="textEnd"
+        android:inputType="numberDecimal|numberSigned"
         app:layout_constraintStart_toEndOf="@+id/tv_X"
         app:layout_constraintTop_toTopOf="@+id/tv_X" />
 
@@ -67,6 +76,7 @@
         android:id="@+id/tv_equalsZero"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:textColor="@color/textColor"
         android:textSize="24sp"
         android:text=" = 0"
         app:layout_constraintStart_toEndOf="@+id/et_num"
@@ -87,35 +97,40 @@
         app:layout_constraintTop_toTopOf="parent"
         android:onClick="solveEquation"/>
 
-    <EditText
+    <TextView
         android:visibility="invisible"
         android:id="@+id/tv_x-1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
+        android:textColor="@color/textColor"
+        android:background="@color/backgroundTextColor"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/tv_x-2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:textColor="@color/textColor"
+        android:background="@color/backgroundTextColor"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_x-1" />
 
-    <EditText
+    <TextView
         android:visibility="invisible"
         android:id="@+id/tv_x"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
+        android:background="@color/backgroundTextColor"
         android:textSize="24sp"
-        android:text="@string/errorMessage"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="128dp"

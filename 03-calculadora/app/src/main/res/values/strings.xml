@@ -4,4 +4,6 @@
     <string name="buttonText">Solve</string>
     <string name="buttonText2">Reset</string>
     <string name="errorMessage">There is no real square root</string>
+    <string name="errorMessage2">Something wrong happened</string>
+    <string name="errorMessage3">Inform a number</string>
 </resources>
