@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">04-CalculoDeAreas</string>
+    <string name="circle">Circle</string>
+    <string name="triangle">Triangle</string>
+    <string name="rectangle">Rectangle</string>
+    <string name="enter_the_circle_radius">Enter the circle radius</string>
+    <string name="calculate_the_area">Calculate the area</string>
+    <string name="enter_the_width">Enter the width</string>
+    <string name="enter_the_height">Enter the height</string>
+    <string name="area">Area</string>
+    <string name="insert_a_number">Insert a number</string>
+    <string name="error_message">Something wrong happened</string>
+    <string name="back">Back</string>
+</resources>
