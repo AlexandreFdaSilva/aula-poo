@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">05-listas</string>
+    <string name="add_refuel">Add refuel</string>
+    <string name="view_refuel_list">View refuel list</string>
+    <string name="avarege_spend">Avarege Spend:</string>
+    <string name="how_much_liters_were_added">How much liters were added?</string>
+</resources>
