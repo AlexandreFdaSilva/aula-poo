@@ -1,4 +1,4 @@
-package jonath.br.a04_calculodeareas;
+package br.example.jonat.a04_calculadora_area;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

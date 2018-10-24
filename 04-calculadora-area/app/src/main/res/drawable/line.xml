@@ -4,7 +4,6 @@
         <!--
             android:shape
                 Keyword. Defines the type of shape. Valid values are:
-
                     rectangle : A rectangle that fills the containing View. This is the default shape.
                     oval : An oval shape that fits the dimensions of the containing View.
                     line : A horizontal line that spans the width of the containing View. This

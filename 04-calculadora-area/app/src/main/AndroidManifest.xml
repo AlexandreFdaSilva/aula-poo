@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jonath.br.a04_calculodeareas">
+    package="br.example.jonat.a04_calculadora_area">
 
     <application
         android:allowBackup="true"
@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".circle01" />
-        <activity android:name=".rectangle01" />
-        <activity android:name=".triangle01" />
         <activity android:name=".circle02" />
+        <activity android:name=".rectangle01" />
         <activity android:name=".rectangle02" />
+        <activity android:name=".triangle01" />
         <activity android:name=".triangle02"></activity>
     </application>
 

@@ -1,4 +1,4 @@
-package jonath.br.a04_calculodeareas;
+package br.example.jonat.a04_calculadora_area;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -17,10 +17,10 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
     @Test
-    public void useAppContext() throws Exception {
+    public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("jonath.br.a04_calculodeareas", appContext.getPackageName());
+        assertEquals("br.example.jonat.a04_calculadora_area", appContext.getPackageName());
     }
 }
