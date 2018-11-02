@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">05-controle-abastecimento</string>
+    <string name="dd_mm_aaaa">DD/MM/AAAA</string>
+    <string name="km">Km:</string>
+    <string name="l">L</string>
+    <string name="indisponivel">Indisponível</string>
+    <string name="autonomia_atual">Autonomia atual:</string>
+    <string name="km_l">Km/L</string>
+    <string name="lista_de_abastecimento">Lista de abastecimento</string>
+    <string name="ipiranga">ipiranga</string>
+    <string name="salvar">salvar</string>
+    <string name="km_atual">Km Atual</string>
+    <string name="litros_abastecidos">Litros Abastecidos</string>
+    <string name="data_de_abastecimento">Data de abastecimento</string>
+    <string name="posto">Posto</string>
+</resources>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdicionarAbastecimento">
+
+    <TextView
+        android:id="@+id/tvKmAtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColor"
+        android:textSize="15sp"
+        android:text="@string/km_atual"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etKmAtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/tvKmAtual"
+        app:layout_constraintTop_toBottomOf="@+id/tvKmAtual" />
+
+    <TextView
+        android:id="@+id/tvLitrosAbastecidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColor"
+        android:textSize="15sp"
+        android:text="@string/litros_abastecidos"
+        app:layout_constraintStart_toStartOf="@+id/etKmAtual"
+        app:layout_constraintTop_toBottomOf="@+id/etKmAtual" />
+
+    <EditText
+        android:id="@+id/etLitrosAbastecidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/tvLitrosAbastecidos"
+        app:layout_constraintTop_toBottomOf="@+id/tvLitrosAbastecidos" />
+
+    <TextView
+        android:id="@+id/tvData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColor"
+        android:textSize="15sp"
+        android:text="@string/data_de_abastecimento"
+        app:layout_constraintStart_toStartOf="@+id/etLitrosAbastecidos"
+        app:layout_constraintTop_toBottomOf="@+id/etLitrosAbastecidos" />
+
+    <EditText
+        android:id="@+id/etData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@+id/tvData"
+        app:layout_constraintTop_toBottomOf="@+id/tvData" />
+
+    <TextView
+        android:id="@+id/tvPosto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColor"
+        android:textSize="15sp"
+        android:text="@string/posto"
+        app:layout_constraintStart_toStartOf="@+id/etData"
+        app:layout_constraintTop_toBottomOf="@+id/etData" />
+
+    <Spinner
+        android:id="@+id/sPosto"
+        android:layout_width="198dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tvPosto"
+        app:layout_constraintTop_toBottomOf="@+id/tvPosto" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="salvarContato"/>
+
+</android.support.constraint.ConstraintLayout>
