@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class AdicionarAbastecimento extends AppCompatActivity {
 
     private String postos[] = new String[]{"Ipiranga", "Petrobras", "Shell", "Taxaco"};
@@ -16,6 +18,7 @@ public class AdicionarAbastecimento extends AppCompatActivity {
     private EditText etKmAtual;
     private EditText etLitrosAbastecidos;
     private EditText etData;
+    private double kmAntigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,8 @@ public class AdicionarAbastecimento extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, postos);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        this.kmAntigo = this.getIntent().getDoubleExtra("kmAntigo", 0);
 
         sPosto = (Spinner) findViewById(R.id.sPosto);
         sPosto.setAdapter(adapter);
@@ -35,6 +40,23 @@ public class AdicionarAbastecimento extends AppCompatActivity {
 
     public void salvarContato(View view) {
         Abastecimento abastecimento = new Abastecimento();
+
+        if(etKmAtual.getText().toString().equals("")){
+            this.etKmAtual.setError(getString(R.string.campo_preenchido));
+            return;
+        }
+        if(etLitrosAbastecidos.getText().toString().equals("")){
+            this.etLitrosAbastecidos.setError(getString(R.string.campo_preenchido));
+            return;
+        }
+        if(etData.getText().toString().equals("")){
+            this.etData.setError(getString(R.string.campo_preenchido));
+            return;
+        }
+        if(Double.parseDouble(etKmAtual.getText().toString()) <= this.kmAntigo){
+            this.etKmAtual.setError(getString(R.string.km_maior));
+            return;
+        }
 
         abastecimento.setKilometros(Double.parseDouble(etKmAtual.getText().toString()));
         abastecimento.setLitros(Double.parseDouble(etLitrosAbastecidos.getText().toString()));

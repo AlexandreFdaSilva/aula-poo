@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class ListaDAO{
         private static ArrayList<Abastecimento> CACHE = new ArrayList<Abastecimento>();
-        public static final String nomeArquivo = "abastecimentos.txt";
+        public static final String nomeArquivo = "abastecimentos2.txt";
 
         public static boolean salvar(Context context, Abastecimento objeto){
             CACHE.add(objeto);

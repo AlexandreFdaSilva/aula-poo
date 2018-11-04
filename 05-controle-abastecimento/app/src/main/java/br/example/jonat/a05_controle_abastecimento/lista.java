@@ -28,6 +28,7 @@ public class lista extends AppCompatActivity {
 
     public void onClickFAB(View view) {
         Intent intent =  new Intent(this.getApplicationContext(), AdicionarAbastecimento.class);
+        intent.putExtra("kmAntigo", this.adapater.lista.get(this.adapater.lista.size()-1).getKilometros());
         startActivityForResult(intent, ADICIONAR_ABASTECIMENTO);
     }
 
@@ -44,5 +45,10 @@ public class lista extends AppCompatActivity {
         }else{
             Toast.makeText(this.getApplicationContext(), "deu ruim", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void backFAB(View view) {
+        Intent intent =  new Intent(this.getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }

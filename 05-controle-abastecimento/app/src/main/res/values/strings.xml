@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">05-controle-abastecimento</string>
+    <string name="app_name">Controle Abastecimento</string>
     <string name="dd_mm_aaaa">DD/MM/AAAA</string>
     <string name="km">Km:</string>
     <string name="l">L</string>
@@ -13,4 +13,6 @@
     <string name="litros_abastecidos">Litros Abastecidos</string>
     <string name="data_de_abastecimento">Data de abastecimento</string>
     <string name="posto">Posto</string>
+    <string name="km_maior">Km de ser maior que ultimo inserido</string>
+    <string name="campo_preenchido">Campo deve ser preenchido</string>
 </resources>
