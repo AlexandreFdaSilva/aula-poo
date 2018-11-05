@@ -28,7 +28,9 @@ public class lista extends AppCompatActivity {
 
     public void onClickFAB(View view) {
         Intent intent =  new Intent(this.getApplicationContext(), AdicionarAbastecimento.class);
-        intent.putExtra("kmAntigo", this.adapater.lista.get(this.adapater.lista.size()-1).getKilometros());
+        if(this.adapater.lista.size()>0) {
+            intent.putExtra("kmAntigo", this.adapater.lista.get(this.adapater.lista.size() - 1).getKilometros());
+        }
         startActivityForResult(intent, ADICIONAR_ABASTECIMENTO);
     }
 

@@ -28,7 +28,7 @@ public class AdicionarAbastecimento extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, postos);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        this.kmAntigo = this.getIntent().getDoubleExtra("kmAntigo", 0);
+        this.kmAntigo = this.getIntent().getDoubleExtra("kmAntigo", -1);
 
         sPosto = (Spinner) findViewById(R.id.sPosto);
         sPosto.setAdapter(adapter);
