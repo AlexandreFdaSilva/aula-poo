@@ -1,6 +1,7 @@
 package br.example.jonat.a05_controle_abastecimento;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -14,10 +15,20 @@ public class ListaViewHolder extends RecyclerView.ViewHolder {
     private TextView tvDate;
     private TextView tvKilometers;
     private TextView tvLiters;
-
+    private Abastecimento abastecimento;
 
     public ListaViewHolder(@NonNull View itemView) {
         super(itemView);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirAtividade = new Intent(v.getContext(), MostrarAbastecimento.class);
+                abrirAtividade.putExtra("abastecimento", ListaViewHolder.this.abastecimento);
+                ((lista) v.getContext()).startActivity(abrirAtividade);
+            }
+        });
+
         this.ivPosto = itemView.findViewById(R.id.ivPosto);
         this.tvDate = itemView.findViewById(R.id.tvDate);
         this.tvKilometers = itemView.findViewById(R.id.tvKilometers);
@@ -25,6 +36,8 @@ public class ListaViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void atualizaGaveta(Abastecimento objeto){
+        this.abastecimento = objeto;
+
         String kilometros = "Km: " + String.valueOf(objeto.getKilometros());
         String litros = String.valueOf(objeto.getLitros()) + " L";
         String posto = objeto.getPosto();

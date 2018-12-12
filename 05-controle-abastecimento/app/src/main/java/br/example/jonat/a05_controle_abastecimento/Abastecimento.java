@@ -1,10 +1,15 @@
 package br.example.jonat.a05_controle_abastecimento;
 
-public class Abastecimento {
+import java.io.Serializable;
+
+public class Abastecimento implements Serializable {
+    private  long id;
     private double kilometros;
     private double litros;
     private String data;
     private String posto;
+    private double latitude;
+    private double longitude;
 
 
     public double getKilometros() {
@@ -37,5 +42,29 @@ public class Abastecimento {
 
     public void setPosto(String posto) {
         this.posto = posto;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }

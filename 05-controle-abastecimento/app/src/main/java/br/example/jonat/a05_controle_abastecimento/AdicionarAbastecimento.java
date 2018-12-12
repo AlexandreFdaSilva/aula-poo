@@ -1,5 +1,7 @@
 package br.example.jonat.a05_controle_abastecimento;
 
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,9 @@ public class AdicionarAbastecimento extends AppCompatActivity {
     private EditText etLitrosAbastecidos;
     private EditText etData;
     private double kmAntigo;
+    private boolean permissao;
+    private Location location;
+    private LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,7 @@ public class AdicionarAbastecimento extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         this.kmAntigo = this.getIntent().getDoubleExtra("kmAntigo", -1);
+        this.permissao = this.getIntent().getBooleanExtra("permissao", false);
 
         sPosto = (Spinner) findViewById(R.id.sPosto);
         sPosto.setAdapter(adapter);
@@ -56,6 +62,18 @@ public class AdicionarAbastecimento extends AppCompatActivity {
         if(Double.parseDouble(etKmAtual.getText().toString()) <= this.kmAntigo){
             this.etKmAtual.setError(getString(R.string.km_maior));
             return;
+        }
+
+        if(permissao == true){
+            GPSprovider gps = new GPSprovider(getApplicationContext());
+            Location location = gps.getLocation();
+            if (location != null){
+                abastecimento.setLatitude(location.getLatitude());
+                abastecimento.setLongitude(location.getLongitude());
+            }
+        } else {
+            abastecimento.setLatitude(010);
+            abastecimento.setLongitude(010);
         }
 
         abastecimento.setKilometros(Double.parseDouble(etKmAtual.getText().toString()));

@@ -15,4 +15,7 @@
     <string name="posto">Posto</string>
     <string name="km_maior">Km de ser maior que ultimo inserido</string>
     <string name="campo_preenchido">Campo deve ser preenchido</string>
+    <string name="voltar">Voltar</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
 </resources>

@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
 public class lista extends AppCompatActivity {
-    private final int ADICIONAR_ABASTECIMENTO = 1312;
+    public static final int ADICIONAR_ABASTECIMENTO = 1312;
     private listaAdapter adapater;
+    private boolean permissao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class lista extends AppCompatActivity {
 
         RecyclerView rvListaAbastecimento = findViewById(R.id.rvLista);
 
+        this.permissao = this.getIntent().getBooleanExtra("permissao", false);
         this.adapater = new listaAdapter();
         this.adapater.lista = ListaDAO.getLista(this.getApplicationContext());
 
@@ -31,7 +34,13 @@ public class lista extends AppCompatActivity {
         if(this.adapater.lista.size()>0) {
             intent.putExtra("kmAntigo", this.adapater.lista.get(this.adapater.lista.size() - 1).getKilometros());
         }
+        intent.putExtra("permissao", this.permissao);
         startActivityForResult(intent, ADICIONAR_ABASTECIMENTO);
+    }
+
+    public void atualizaDatasetLista(){
+        this.adapater.lista = ListaDAO.getLista(this.getApplicationContext());
+        this.adapater.notifyDataSetChanged();
     }
 
     @Override
@@ -40,7 +49,7 @@ public class lista extends AppCompatActivity {
         if(requestCode == ADICIONAR_ABASTECIMENTO){
             if(resultCode == 1){
                 //Toast.makeText(this.getApplicationContext(), "AÇÃO 1!!!!!", Toast.LENGTH_LONG).show();
-                this.adapater.notifyDataSetChanged();
+                atualizaDatasetLista();
             }else{
                 Toast.makeText(this.getApplicationContext(), "nao sei de onde veio", Toast.LENGTH_LONG).show();
             }
@@ -51,6 +60,11 @@ public class lista extends AppCompatActivity {
 
     public void backFAB(View view) {
         Intent intent =  new Intent(this.getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void GoToMap(View view) {
+        Intent intent = new Intent(this.getApplicationContext(), MapaActivity.class);
         startActivity(intent);
     }
 }
